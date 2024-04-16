@@ -1,0 +1,109 @@
+Voici les URL Postman pour chaque API  , avec les paramètres et le corps de la requête remplis en fonction des données de ma base de donnée  base de données :
+
+1. Pour obtenir les détails d'un client :
+```
+GET http://localhost:8080/clients?nom=Dupont&prenom=Jean
+```
+
+2. Pour créer un nouveau client :
+```
+POST http://localhost:8080/clients
+```
+Corps de la requête :
+```json
+{
+    "nom": "NouveauNom 2 ",
+    "prenom": "NouveauPrenom 2 ",
+    "date_naissance": "1998-12-25",
+    "adresse": "Nouvelle Adresse",
+    "telephone": "0123456789"
+}
+```
+
+3. Pour mettre à jour un client :
+```
+PUT http://localhost:8080/clients
+```
+Corps de la requête :
+```json
+{
+    "nom": "Dupont",
+    "prenom": "Jean",
+    "email": "jean.dupont@example.com",
+    "date_naissance": "1990-01-01",
+    "adresse": "Nouvelle Adresse",
+    "telephone": "Nouveau Telephone"
+}
+```
+
+4. Pour obtenir les comptes d'un client :
+```
+GET http://localhost:8080/comptes?identifiantClient=1
+```
+
+5. Pour créer un nouveau compte :
+```
+POST http://localhost:8080/comptes
+```
+Corps de la requête :
+```json
+{
+    "intituleCompte": "Compte Courant",
+    "typeCompte": "COMPTE_COURANT_SIMPLE",
+    "idClients": [3]    
+} 
+
+Ou bien pour un compte Joint : 
+
+{
+    "intituleCompte": "Compte Courant",
+    "typeCompte": "COMPTE_COURANT_JOINT",
+    "idClients": [1,2]
+}
+```
+
+6. Pour obtenir les cartes bancaires associées à un compte :
+```
+GET http://localhost:8080/comptes/FR7630004000031234567890126/cartes
+```
+
+7. Pour créer une nouvelle carte bancaire pour un compte :
+```
+POST http://localhost:8080/comptes/FR7630004000031234567890126/cartes
+```
+Corps de la requête :
+```json
+{
+    
+    "codeSecret": "1234",
+    "titulaireId": 1
+}
+```
+
+8. Pour effectuer un paiement avec une carte bancaire :
+```
+POST http://localhost:8080/comptes/FR7630004000031234567890126/cartes/1234567890123456/paiement
+```
+Corps de la requête :
+```json
+{
+    "montant": 100.0
+    
+}
+```
+
+9. Pour créer un virement :
+```
+POST http://localhost:8080/virements
+```
+Corps de la requête :
+```json
+{
+    "ibanCompteEmetteur": "FR7630004000031234567890126",
+    "ibanCompteBeneficiaire": "FR7630004000031234567894146",
+    "montant": 100.0,
+    "libelleVirement": "Test Virement"
+}
+```
+
+Veuillez remplacer `localhost:8080` par l'adresse et le port de votre serveur si ceux-ci sont différents.
