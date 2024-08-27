@@ -19,6 +19,7 @@ Exécutez le fichier src/main/java/fr/uphf/projet/Application.java pour démarre
 L'application expose plusieurs endpoints REST pour interagir avec les données. Voici quelques exemples :
 
 POST /clients : crée un nouveau client.
+
 GET /clients?nom={nom}&prenom={prenom} : récupère les informations d'un client spécifique.
 
 PUT /clients : met à jour les informations d'un client spécifique.
