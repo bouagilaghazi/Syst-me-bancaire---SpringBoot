@@ -20,5 +20,7 @@ L'application expose plusieurs endpoints REST pour interagir avec les données. 
 
 POST /clients : crée un nouveau client.
 GET /clients?nom={nom}&prenom={prenom} : récupère les informations d'un client spécifique.
+
 PUT /clients : met à jour les informations d'un client spécifique.
+
 POST /comptes/{IBAN}/cartes : crée une nouvelle carte pour un compte spécifique.
